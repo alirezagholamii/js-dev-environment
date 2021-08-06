@@ -15,7 +15,11 @@
     "test:watch": "npm run test -- --watch",
     "generate-mock-data": "babel-node build-script/generate-mock-data",
     "prestart-mockapi": "npm run generate-mock-data",
-    "start-mockapi": "json-server --watch src/api/db.json --port 3001"
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all clean-dist test lint",
+    "build": "babel-node build-script/build.js",
+    "postbuild": "babel-node build-script/dist-server.js"
   },
   "repository": {
     "type": "git",
@@ -51,6 +55,7 @@
     "json-server": "^0.16.3",
     "mocha": "^9.0.3",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "style-loader": "^0.13.1",
     "webpack": "1.13.2",
     "webpack-dev-middleware": "1.8.4",
