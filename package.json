@@ -19,7 +19,8 @@
     "clean-dist": "rimraf ./dist && mkdir dist",
     "prebuild": "npm-run-all clean-dist test lint",
     "build": "babel-node build-script/build.js",
-    "postbuild": "babel-node build-script/dist-server.js"
+    "postbuild": "babel-node build-script/dist-server.js",
+    "deploy": "surge ./dist"
   },
   "repository": {
     "type": "git",
@@ -57,6 +58,7 @@
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "style-loader": "^0.13.1",
+    "surge": "^0.23.0",
     "webpack": "1.13.2",
     "webpack-dev-middleware": "1.8.4",
     "webpack-hot-middleware": "2.13.0",
